@@ -1,0 +1,20 @@
+{
+  "name": "prodera-threeui",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@designcodeio/threeui": "^1.2.0",
+    "@vitejs/plugin-react": "latest",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.179.1",
+    "vite": "latest"
+  },
+  "devDependencies": {}
+}
