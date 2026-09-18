@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { SylvaLivingWorldScene } from '@designcodeio/threeui';
 import '@designcodeio/threeui/style.css';
@@ -20,26 +20,50 @@ const team = [
 
 function Topbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
 
   useEffect(() => {
     let ticking = false;
+
     const update = () => {
-      setScrolled(window.scrollY > 20);
+      const y = window.scrollY;
+      const diff = y - lastY.current;
+
+      setScrolled(y > 20);
+
+      if (y > 120 && diff > 6) {
+        setHidden(true);
+      } else if (diff < -6 || y < 120) {
+        setHidden(false);
+      }
+
+      lastY.current = y;
       ticking = false;
     };
+
     const onScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(update);
         ticking = true;
       }
     };
+
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const classes = [
+    'topbar',
+    scrolled && 'is-scrolled',
+    hidden && 'is-hidden',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <header className={`topbar${scrolled ? ' is-scrolled' : ''}`}>
+    <header className={classes}>
       <a className="brand" href="#top" aria-label="PRODERA home">
         <img src="images/logo.png" alt="PRODERA — Play More, Wait Less." />
       </a>
