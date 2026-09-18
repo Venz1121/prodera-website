@@ -104,6 +104,7 @@ img {
   backdrop-filter: blur(8px) saturate(120%);
   -webkit-backdrop-filter: blur(8px) saturate(120%);
   transition:
+    transform .45s cubic-bezier(.22, 1, .36, 1),
     background .5s cubic-bezier(.22, 1, .36, 1),
     backdrop-filter .5s cubic-bezier(.22, 1, .36, 1),
     border-color .5s ease,
@@ -116,6 +117,10 @@ img {
   -webkit-backdrop-filter: blur(28px) saturate(160%);
   border-bottom-color: var(--line-soft);
   box-shadow: 0 8px 32px rgba(0, 0, 0, .35);
+}
+
+.topbar.is-hidden {
+  transform: translateY(-100%);
 }
 
 .brand {
