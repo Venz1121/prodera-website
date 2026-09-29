@@ -69,7 +69,7 @@ function Topbar() {
       </a>
       <nav>
         <a href="#experience">Experience</a>
-        <a href="#modules">features</a>
+        <a href="#modules">Features</a>
         <a href="#staff">Team</a>
       </nav>
       <a
