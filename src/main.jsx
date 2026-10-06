@@ -74,7 +74,7 @@ function Topbar() {
       </nav>
       <a
         className="button button-gold"
-        href="https://github.com/Venz1121/prodera-website/releases/tag/v1.0.3"
+        href="https://github.com/Venz1121/prodera-website/releases/download/v1.0.3/ProderaGolf.1.2.apk"
         download
       >
         Download APK
